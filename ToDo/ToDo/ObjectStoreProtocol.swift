@@ -1,5 +1,5 @@
 //
-//  BaseClass.swift
+//  ObjectStoreProtocol.swift
 //  ToDo
 //
 //  Created by Cynthia Whitlatch on 2/4/16.
@@ -9,8 +9,8 @@
 import Foundation
 
 protocol ObjectStoreProtocol: class {
-    
-    typealias Object: BaseClass, NSCoding
+
+    typealias Object: BaseObject, NSCoding
     
     var objects: [Object] { get set}
     
@@ -35,31 +35,31 @@ extension ObjectStoreProtocol {
     }
     
     func removeObjectAtIndexPath(indexPath:NSIndexPath) {
-        
+        self.objects.removeAtIndex(indexPath.row)
     }
     
     func removeAllObjects() {
-        
+        self.removeAllObjects()
         self.save()
     }
     
     func objectAtIndex(index: Int) -> Object? {
-        self.objects.append(object)
+        // ADD CODE
     }
     
-    func count() {
+    func count() -> Int {
         return self.objects.count
     }
     
-    func allObjects:[Object] {
-        return self.objects
+    func allObjects() -> [Object] {
+        // ADD CODE
     }
     
-    func save() {
-        NSKeyedUnarchiver.archiveRootObject(self.objects,
+    func save(file: String) {
+        NSKeyedArchiver.archiveRootObject(self.objects, toFile: file)
     }
     
-    class Store: ObjectStoreProtocol {
+class Store: ObjectStoreProtocol {
         static let shared = Store()
         private init() {}
         typealias Object = ToDo
@@ -69,11 +69,9 @@ extension ObjectStoreProtocol {
     let itemOne = ToDo(itemDescription: "Get milk.", itemDate: NSDate())
     let itemTwo = ToDo(itemDescription: "Get bacon.", itemDate: NSDate())
     
+    
     Store.shared.add(itemOne)
     Store.shared.add(itemTwo)
     
-    for item in Store.shared.allObjects() {
-    print(item.itemDescription)
-    }
-    
-}
+
+
