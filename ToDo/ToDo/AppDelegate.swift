@@ -18,5 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func applicationWillResignActive(application: UIApplication) {
+        Store.shared.save(String.archivePath())
+    }
 }
 

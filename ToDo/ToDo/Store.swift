@@ -14,11 +14,18 @@ class Store: ObjectStoreProtocol {
     
     private init() {
         if let
-        data = NSData(contentsOfURL: NSURL.archiveURL()),
+        data = NSData(contentsOfURL:NSURL.archiveURL()),
             storedObjects = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [ToDo] {
         self.objects = storedObjects
         }
     }
         typealias Object = ToDo
         var objects = [Object]()
-        }
+    
+}
+
+
+
+
+
+

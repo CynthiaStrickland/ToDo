@@ -11,23 +11,23 @@ import UIKit
 
 extension String {
     
-    static func archiverPath() -> String {
-        guard let archivePath = NSURL.archiverURL().path else {fatalError("Error") }
+    static func archivePath() -> String {
+        guard let archivePath = NSURL.archiveURL().path else { fatalError("Can't get archive path. Error origin: \(__FUNCTION__)") }
         return archivePath
-        }
     }
+    
+}
 
 extension NSURL {
+    
     class func documentsDirectory() -> NSURL {
-
-        let documentsDirectory = NSFileManager.defaultManager().URLsForDirectory(.DocumentationDirectory, inDomains:.UserDomainMask)[0]
+        guard let documentsDirectory = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first else { fatalError("Error getting Documents directory. Error origin: \(__FUNCTION__)") }
         return documentsDirectory
     }
     
-    class func archiverURL(storeId: String = "archive") -> NSURL {
-    
-    return self.documentsDirectory().URLByAppendingPathComponent(storeId)
+    class func archiveURL(storeId: String = "archive") -> NSURL {
+        return self.documentsDirectory().URLByAppendingPathComponent(storeId)
     }
-
+    
 }
 

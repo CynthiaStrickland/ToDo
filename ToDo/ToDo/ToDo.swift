@@ -15,18 +15,17 @@ class ToDo: BaseObject, NSCoding {
     let itemDescription: String
     let itemDate: NSDate
     
-    init(itemDescription: String, itemDate: NSDate) {
-        self.itemDate = itemDate
-        self.itemDescription = itemDescription
+    init(description: String, date: NSDate = NSDate()) {
+        self.itemDate = date
+        self.itemDescription = description
     }
-
 
     //MARK: NSCoding
 
     @objc required convenience init(coder aDecoder: NSCoder) {
-        guard let itemDescription = aDecoder.decodeObjectForKey("itemDescription") as? String else {fatalError("Something Is WRONG") }
-        guard let itemDate = aDecoder.decodeObjectForKey("itemDate") as? NSDate else { fatalError("Something is WRONG") }
-        self.init(itemDescription: itemDescription, itemDate:itemDate)
+        guard let description = aDecoder.decodeObjectForKey("itemDescription") as? String else {fatalError("Something Is WRONG") }
+        guard let date = aDecoder.decodeObjectForKey("itemDate") as? NSDate else { fatalError("Something is WRONG") }
+        self.init(description:description, date:date)
     }
 
     @objc func encodeWithCoder(aCoder: NSCoder) {

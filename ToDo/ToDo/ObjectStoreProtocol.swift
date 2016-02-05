@@ -18,10 +18,10 @@ protocol ObjectStoreProtocol: class {
     func removeObject(object:Object)
     func removeObjectAtIndexPath(indexPath:NSIndexPath)
     func removeAllObjects()
-    func objectAtIndex(index: Int) -> Object?
+    func objectForIndexPath(indexPath: NSIndexPath) -> Object
     func count() -> Int
     func allObjects() -> [Object]
-    func save()
+    func save(file:String)
 }
 
 extension ObjectStoreProtocol {
@@ -34,17 +34,16 @@ extension ObjectStoreProtocol {
         
     }
     
-    func removeObjectAtIndexPath(indexPath:NSIndexPath) {
-        self.objects.removeAtIndex(indexPath.row)
+    func removeObjectAtIndexPath(indexPath:NSIndexPath) -> Object  {
+        return self.objects.removeAtIndex(indexPath.row)
     }
     
     func removeAllObjects() {
-        self.removeAllObjects()
-        self.save()
+        self.objects.removeAll(keepCapacity: false)
     }
     
-    func objectAtIndex(index: Int) -> Object? {
-        // ADD CODE
+    func objectForIndexPath(indexPath: NSIndexPath) -> Object {
+        return self.objects[indexPath.row]
     }
     
     func count() -> Int {
@@ -52,26 +51,10 @@ extension ObjectStoreProtocol {
     }
     
     func allObjects() -> [Object] {
-        // ADD CODE
+        return self.allObjects()
     }
     
     func save(file: String) {
         NSKeyedArchiver.archiveRootObject(self.objects, toFile: file)
     }
-    
-class Store: ObjectStoreProtocol {
-        static let shared = Store()
-        private init() {}
-        typealias Object = ToDo
-        var objects = [Object]()
-    }
-    
-    let itemOne = ToDo(itemDescription: "Get milk.", itemDate: NSDate())
-    let itemTwo = ToDo(itemDescription: "Get bacon.", itemDate: NSDate())
-    
-    
-    Store.shared.add(itemOne)
-    Store.shared.add(itemTwo)
-    
-
-
+}

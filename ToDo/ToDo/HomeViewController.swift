@@ -29,21 +29,16 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func configureCell(indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("todoCell", forIndexPath: indexPath)
-        
-        // Missing model.
-        
-        let item = Store.shared.objectAtIndex(indexPath.row)
-        cell.textLabel?.text = item?.itemDescription
-        
-        // Missing setup.
-        
+        let item = Store.shared.objectForIndexPath(indexPath)
+        cell.textLabel?.text = item.itemDescription
+        cell.detailTextLabel?.text = "Created on: \(NSDateFormatter.localizedStringFromDate(item.itemDate, dateStyle: .ShortStyle, timeStyle: .NoStyle))"
         return cell
-    }
+        }
     
     // MARK: UITableViewDataSource
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Store.shared.count
+        return Store.shared.count()
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -59,14 +54,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             
-            // Missing model.
-            
-            Store.shared.removeObjectAtIndexPath(indexPath)
-            Store.shared.removeObject(Store.shared.objectAtIndex(indexPath.row))
-            
+            Store.shared.removeObject(Store.shared.objectForIndexPath(indexPath))
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+
         }
     }
-    
 }
 
