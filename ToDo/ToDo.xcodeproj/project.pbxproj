@@ -16,7 +16,8 @@
 		3D1D2D2C1C642F840081E4B1 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1D2D2B1C642F840081E4B1 /* ToDo.swift */; };
 		3D1D2D2E1C642F890081E4B1 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1D2D2D1C642F890081E4B1 /* Store.swift */; };
 		3D1D2D301C642F8F0081E4B1 /* Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1D2D2F1C642F8F0081E4B1 /* Additions.swift */; };
-		3D1D2D321C642F950081E4B1 /* BaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1D2D311C642F950081E4B1 /* BaseClass.swift */; };
+		3D1D2D321C642F950081E4B1 /* ObjectStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1D2D311C642F950081E4B1 /* ObjectStoreProtocol.swift */; };
+		3D1D2D361C653D430081E4B1 /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1D2D351C653D430081E4B1 /* BaseObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +32,8 @@
 		3D1D2D2B1C642F840081E4B1 /* ToDo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		3D1D2D2D1C642F890081E4B1 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		3D1D2D2F1C642F8F0081E4B1 /* Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Additions.swift; sourceTree = "<group>"; };
-		3D1D2D311C642F950081E4B1 /* BaseClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseClass.swift; sourceTree = "<group>"; };
+		3D1D2D311C642F950081E4B1 /* ObjectStoreProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectStoreProtocol.swift; sourceTree = "<group>"; };
+		3D1D2D351C653D430081E4B1 /* BaseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,9 +78,14 @@
 		1CA2F7221C3DA3BF00757A21 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				3D1D2D2D1C642F890081E4B1 /* Store.swift */,
 				3D1D2D311C642F950081E4B1 /* BaseClass.swift */,
 				3D1D2D2F1C642F8F0081E4B1 /* Additions.swift */,
+=======
+				3D1D2D2F1C642F8F0081E4B1 /* Additions.swift */,
+				3D1D2D311C642F950081E4B1 /* ObjectStoreProtocol.swift */,
+>>>>>>> master
 			);
 			name = Protocol;
 			sourceTree = "<group>";
@@ -86,6 +93,7 @@
 		1CA2F7231C3DA3C700757A21 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3D1D2D351C653D430081E4B1 /* BaseObject.swift */,
 				3D1D2D2B1C642F840081E4B1 /* ToDo.swift */,
 			);
 			name = Model;
@@ -194,7 +202,8 @@
 				1CA2F70D1C3C2B6400757A21 /* HomeViewController.swift in Sources */,
 				1CA2F7281C3DB2C200757A21 /* NewItemViewController.swift in Sources */,
 				3D1D2D301C642F8F0081E4B1 /* Additions.swift in Sources */,
-				3D1D2D321C642F950081E4B1 /* BaseClass.swift in Sources */,
+				3D1D2D321C642F950081E4B1 /* ObjectStoreProtocol.swift in Sources */,
+				3D1D2D361C653D430081E4B1 /* BaseObject.swift in Sources */,
 				1CA2F70B1C3C2B6400757A21 /* AppDelegate.swift in Sources */,
 				3D1D2D2C1C642F840081E4B1 /* ToDo.swift in Sources */,
 			);
