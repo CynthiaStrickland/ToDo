@@ -19,7 +19,7 @@ extension String {
     }
 extension NSURL {
     class func documentsDirectory() -> NSURL {
-        guard let documentsDirectory = NSFileManager.defaultManager().URLsForDirectory(.DocumentationDirectory, inDomains: .UserDomainMask.first)  else { fatalError("Erro") }
+        guard let documentsDirectory = NSFileManager.defaultManager().URLsForDirectory(.DocumentationDirectory, inDomains: .UserDomainMask.first)  else { fatalError("Error") }
         return documentsDirectory
     }
     

@@ -16,7 +16,7 @@ class ToDo: BaseClass, NSCoding {
     init(itemDescription: String, itemDate: NSDate) {
         self.itemDate = itemDate
         self.itemDescription = itemDescription
-        super.init()
+//        super.init()
     }
 }
 
