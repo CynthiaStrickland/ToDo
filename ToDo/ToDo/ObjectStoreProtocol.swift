@@ -1,6 +1,6 @@
 //
 //  ObjectStoreProtocol.swift
-//  ToDo
+//
 //
 //  Created by Cynthia Whitlatch on 2/4/16.
 //  Copyright © 2016 Michael Babiy. All rights reserved.
@@ -16,7 +16,7 @@ protocol ObjectStoreProtocol: class {
     
     func add(object: Object)
     func removeObject(object:Object)
-    func removeObjectAtIndexPath(indexPath:NSIndexPath)
+    func removeObjectAtIndexPath(indexPath:NSIndexPath) -> Object
     func removeAllObjects()
     func objectForIndexPath(indexPath: NSIndexPath) -> Object
     func count() -> Int
@@ -30,11 +30,10 @@ extension ObjectStoreProtocol {
     }
     
     func removeObject(object: Object) {
-        self.objects.removeAll()
-        
+        self.objects.removeAll()        
     }
     
-    func removeObjectAtIndexPath(indexPath:NSIndexPath) -> Object  {
+    func removeObjectAtIndexPath (indexPath:NSIndexPath) -> Object  {
         return self.objects.removeAtIndex(indexPath.row)
     }
     

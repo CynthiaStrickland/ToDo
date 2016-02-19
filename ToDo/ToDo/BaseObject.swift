@@ -13,6 +13,8 @@ class BaseObject: NSObject {
     
     override init() {
         self.identifier = NSUUID().UUIDString
+        // Creates a unique identifier specific to the phone/app.
+        
         super.init()
     }
 }

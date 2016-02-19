@@ -13,10 +13,8 @@ class Store: ObjectStoreProtocol {
     static let shared = Store()
     
     private init() {
-        if let
-        data = NSData(contentsOfURL:NSURL.archiveURL()),
-            storedObjects = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [ToDo] {
-        self.objects = storedObjects
+        if let data = NSData(contentsOfURL:NSURL.archiveURL()), storedObjects = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [ToDo] {
+            self.objects = storedObjects
         }
     }
         typealias Object = ToDo
